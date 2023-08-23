@@ -1,6 +1,6 @@
 import requests
 from pprint import pprint
-from datetime import datetime, 
+
 from flight_data import FlightData
 
 kiwi_server = "https://api.tequila.kiwi.com/"
@@ -37,14 +37,16 @@ class FlightSearch:
             "curr": "GBP",
         }
 
-        response = requests.get(url=f"{kiwi_server}v2/search", headers=header, params=params)
+        response = requests.get(
+            url=f"{kiwi_server}v2/search", headers=header, params=params
+        )
 
         try:
             data = response.json()["data"][0]
         except IndexError:
             print(f"No flights found for {destination_city_code}.")
             return None
-       
+
         flight_data = FlightData(
             price=data["price"],
             origin_city=data["route"][0]["cityFrom"],
@@ -52,7 +54,7 @@ class FlightSearch:
             destination_city=data["route"][0]["cityTo"],
             destination_airport=data["route"][0]["flyTo"],
             out_date=data["route"][0]["local_departure"].split("T")[0],
-            return_date=data["route"][1]["local_departure"].split("T")[0]
+            return_date=data["route"][1]["local_departure"].split("T")[0],
         )
         print(f"{flight_data.destination_city}: £{flight_data.price}")
         return flight_data
