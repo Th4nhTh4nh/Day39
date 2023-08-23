@@ -32,23 +32,3 @@ class FlightData:
         self.destination_airport = destination_airport
         self.out_date = out_date
         self.return_date = return_date
-
-
-"""
-    def get_price(self, city):
-        header = {"apikey": kiwiapi_key}
-        params = {
-            "fly_from": self.departure_airport_code,
-            "fly_to": city,
-            "date-from": tomorow_date,
-            "date_to": six_months_late_date,
-            "curr": "GBP",
-        }
-        response = requests.get(
-            url=f"{kiwi_server}search", headers=header, params=params
-        )
-        data = response.json()
-        print(data["data"]["price"])
-
-    pass
-"""
