@@ -2,7 +2,8 @@ import requests
 from pprint import pprint
 
 sheety_endpoint = (
-    "https://api.sheety.co/b3ee87d266692ec6590e617dcc1188d0/flightDeals/prices"
+    # "https://api.sheety.co/b3ee87d266692ec6590e617dcc1188d0/flightDeals/prices"
+    "https://api.sheety.co/814b7e0c149f635318727af548de88d7/flightDeals/prices"
 )
 
 
